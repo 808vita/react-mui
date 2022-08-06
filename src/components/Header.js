@@ -12,8 +12,8 @@ import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import AdbIcon from "@mui/icons-material/Adb";
-
-const pages = ["Products", "Pricing", "Blog"];
+import { useNavigate } from "react-router-dom";
+const pages = ["List Users", "Register"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 const ResponsiveAppBar = () => {
@@ -34,6 +34,16 @@ const ResponsiveAppBar = () => {
 	const handleCloseUserMenu = () => {
 		setAnchorElUser(null);
 	};
+	const navigate = useNavigate();
+	const handleClick = (page) => {
+		let link = "";
+		if (page === "List Users") {
+			link = "/list-users";
+		} else {
+			link = "/register";
+		}
+		navigate(link);
+	};
 
 	return (
 		<AppBar position="static">
@@ -44,7 +54,6 @@ const ResponsiveAppBar = () => {
 						variant="h6"
 						noWrap
 						component="a"
-						href="/"
 						sx={{
 							mr: 2,
 							display: { xs: "none", md: "flex" },
@@ -55,7 +64,7 @@ const ResponsiveAppBar = () => {
 							textDecoration: "none",
 						}}
 					>
-						LOGO
+						React
 					</Typography>
 
 					<Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
@@ -88,7 +97,13 @@ const ResponsiveAppBar = () => {
 							}}
 						>
 							{pages.map((page) => (
-								<MenuItem key={page} onClick={handleCloseNavMenu}>
+								<MenuItem
+									key={page}
+									onClick={() => {
+										handleClick(page);
+										handleCloseNavMenu();
+									}}
+								>
 									<Typography textAlign="center">{page}</Typography>
 								</MenuItem>
 							))}
@@ -117,7 +132,10 @@ const ResponsiveAppBar = () => {
 						{pages.map((page) => (
 							<Button
 								key={page}
-								onClick={handleCloseNavMenu}
+								onClick={() => {
+									handleClick(page);
+									handleCloseNavMenu();
+								}}
 								sx={{ my: 2, color: "white", display: "block" }}
 							>
 								{page}

@@ -13,7 +13,7 @@ function App() {
 			<Routes>
 				<Route expact path="/" element={<MainLayout />} />
 				<Route expact path="/list-users" element={<ListUsersPage />} />
-				<Route expact path="/register-user" element={<RegisterUserPage />} />
+				<Route expact path="/register" element={<RegisterUserPage />} />
 			</Routes>
 		</div>
 	);
