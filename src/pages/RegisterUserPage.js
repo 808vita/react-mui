@@ -1,12 +1,12 @@
 import React, { useEffect } from "react";
-import { RegisterUser } from "../resources/LoadData";
+import RegisterUserLayout from "../layout/RegisterUserLayout";
 
 const RegisterUserPage = () => {
-	useEffect(() => {
-		RegisterUser();
-	}, []);
-
-	return <div>RegisterUserPage</div>;
+	return (
+		<div>
+			<RegisterUserLayout />
+		</div>
+	);
 };
 
 export default RegisterUserPage;
