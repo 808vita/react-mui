@@ -1,14 +1,24 @@
 import * as React from "react";
 import CssBaseline from "@mui/material/CssBaseline";
 import Container from "@mui/material/Container";
+import { styled } from "@mui/material/styles";
+import Box from "@mui/material/Box";
+import Paper from "@mui/material/Paper";
 
-export default function SimpleContainer() {
+const Item = styled(Paper)(({ theme }) => ({
+	backgroundColor: "#fff",
+	...theme.typography.body2,
+	padding: theme.spacing(8),
+	textAlign: "center",
+	color: theme.palette.text.secondary,
+}));
+
+export default function SimpleContainer({ children }) {
 	return (
 		<React.Fragment>
-			<CssBaseline />
-			<Container maxWidth="sm">
-				<h1>oof</h1>
-			</Container>
+			<Item>
+				<Container maxWidth="sm">{children}</Container>
+			</Item>
 		</React.Fragment>
 	);
 }

@@ -11,7 +11,11 @@ function App() {
 		<>
 			<Header />
 			<Routes>
-				<Route expact path="/" element={<MainLayout />} />
+				<Route
+					expact
+					path="/"
+					element={<MainLayout children={<ListUsersPage />} />}
+				/>
 				<Route expact path="/list-users" element={<ListUsersPage />} />
 				<Route expact path="/register" element={<RegisterUserPage />} />
 			</Routes>
