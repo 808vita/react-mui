@@ -8,14 +8,14 @@ import RegisterUserPage from "./pages/RegisterUserPage";
 
 function App() {
 	return (
-		<div className="App">
+		<>
 			<Header />
 			<Routes>
 				<Route expact path="/" element={<MainLayout />} />
 				<Route expact path="/list-users" element={<ListUsersPage />} />
 				<Route expact path="/register" element={<RegisterUserPage />} />
 			</Routes>
-		</div>
+		</>
 	);
 }
 

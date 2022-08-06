@@ -1,6 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import { LoadUsers } from "../resources/LoadData";
 import { GlobalContext } from "../context/GlobalState";
+import ListUsersLayout from "../layout/ListUsersLayout";
 
 const ListUsersPage = () => {
 	const GContext = useContext(GlobalContext);
@@ -11,19 +12,16 @@ const ListUsersPage = () => {
 	}, []);
 
 	useEffect(() => {
-		if (!usersInfo) {
+		if (usersInfo === []) {
 			return;
 		}
 		console.log(usersInfo);
 	}, [usersInfo]);
 
 	return (
-		<div>
-			{usersInfo &&
-				usersInfo.map((userInfo) => (
-					<h2 key={userInfo.id}>{userInfo.email}</h2>
-				))}
-		</div>
+		<>
+			<ListUsersLayout usersInfo={usersInfo} />
+		</>
 	);
 };
 
