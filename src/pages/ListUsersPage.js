@@ -11,13 +11,6 @@ const ListUsersPage = () => {
 		LoadUsers(setUsersInfo);
 	}, []);
 
-	useEffect(() => {
-		if (usersInfo === []) {
-			return;
-		}
-		console.log(usersInfo);
-	}, [usersInfo]);
-
 	return (
 		<>
 			<ListUsersLayout usersInfo={usersInfo} />
