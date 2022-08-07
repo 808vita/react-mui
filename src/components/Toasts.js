@@ -28,7 +28,7 @@ const Toasts = () => {
 		}
 
 		if (notification.type === "success") {
-			toast.success(`"🦄 ${notification.msg}`, {
+			toast.success(`🦄 ${notification.msg}`, {
 				position: toast.POSITION.TOP_CENTER,
 			});
 			return;

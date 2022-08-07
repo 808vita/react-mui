@@ -33,7 +33,7 @@ const ResponsiveAppBar = () => {
 		if (page === "List Users") {
 			link = "/list-users";
 		} else {
-			link = "/register";
+			link = "/";
 		}
 		navigate(link);
 	};

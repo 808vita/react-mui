@@ -13,13 +13,8 @@ function App() {
 			<Header />
 			<Toasts />
 			<Routes>
-				<Route
-					expact
-					path="/"
-					element={<MainLayout children={<ListUsersPage />} />}
-				/>
+				<Route expact path="/" element={<RegisterUserPage />} />
 				<Route expact path="/list-users" element={<ListUsersPage />} />
-				<Route expact path="/register" element={<RegisterUserPage />} />
 			</Routes>
 		</>
 	);
