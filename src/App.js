@@ -5,11 +5,13 @@ import MainLayout from "./layout/MainLayout";
 import { Routes, Route } from "react-router-dom";
 import ListUsersPage from "./pages/ListUsersPage";
 import RegisterUserPage from "./pages/RegisterUserPage";
+import Toasts from "./components/Toasts";
 
 function App() {
 	return (
 		<>
 			<Header />
+			<Toasts />
 			<Routes>
 				<Route
 					expact

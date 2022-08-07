@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useContext } from "react";
+import { GlobalContext } from "../context/GlobalState";
 import { useFormik } from "formik";
 import * as yup from "yup";
 import Button from "@mui/material/Button";
@@ -16,11 +17,12 @@ const validationSchema = yup.object({
 		.required("Password is required"),
 });
 
-const registerHandler = (data) => {
-	RegisterUser(data);
-};
-
 const RegisterForm = () => {
+	const Gcontext = useContext(GlobalContext);
+	const { setRegisterInfo, setNotification } = Gcontext;
+	const registerHandler = (data) => {
+		RegisterUser(data, setRegisterInfo, setNotification);
+	};
 	const formik = useFormik({
 		initialValues: {
 			email: "eve.holt@reqres.in",

@@ -5,10 +5,11 @@ import ListUsersLayout from "../layout/ListUsersLayout";
 
 const ListUsersPage = () => {
 	const GContext = useContext(GlobalContext);
-	const { usersInfo, setUsersInfo } = GContext;
+	const { usersInfo, setUsersInfo, setNotification } = GContext;
 
 	useEffect(() => {
 		LoadUsers(setUsersInfo);
+		setNotification({ msg: "Listing Users", type: "normal" });
 	}, []);
 
 	return (

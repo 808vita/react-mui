@@ -11,7 +11,7 @@ export const LoadUsers = async (setUsersInfo) => {
 	}
 };
 
-export const RegisterUser = async (data) => {
+export const RegisterUser = async (data, setRegisterInfo, setNotification) => {
 	// {
 	// 	email: "eve.holt@reqres.in",
 	// 	password: "pistol",
@@ -21,7 +21,11 @@ export const RegisterUser = async (data) => {
 		const response = await axios.post("https://reqres.in/api/register", data);
 
 		console.log(response.data);
+		setRegisterInfo(response.data);
+		setNotification({ msg: "Registered Successfully!", type: "success" });
 	} catch (error) {
 		console.error(error);
+		setRegisterInfo({});
+		setNotification({ msg: "Registeration Failed!", type: "error" });
 	}
 };
